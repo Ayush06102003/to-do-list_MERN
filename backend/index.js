@@ -13,8 +13,8 @@ ConnectToMongo();
 app.use(cors())
 app.use(express.json());
 
-app.use(todo);
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-  });
+app.use('/.netlify/functions/index', todo); // Adjust the route based on your needs
+
+// Export the Express app for Netlify functions
+module.exports = app;
