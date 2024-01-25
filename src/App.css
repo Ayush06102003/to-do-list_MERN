@@ -1,8 +1,8 @@
 
-/* 
+
 body{
   background-color: #282c34ed;
-} */
+}
 .completed {
   text-decoration: line-through;
 }
@@ -10,4 +10,22 @@ body{
 .completed-text {
   text-decoration: line-through;
   /* Additional styles for completed text */
+}
+.text-centre{
+  text-align: center;
+  color: whitesmoke;
+  padding-top: 3%;
+}
+.container{
+  max-width : 60%;
+  height: auto;
+  padding:10px;
+  background-color: rgba(27, 26, 26, 0.755);
+  border-radius: 5px;
+}
+.form-label{
+  color: beige;
+}
+.btn-secondary{
+  
 }

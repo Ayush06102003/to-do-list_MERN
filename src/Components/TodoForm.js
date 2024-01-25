@@ -31,7 +31,7 @@ function TodoForm() {
               onChange={onInputChange}/>
                 </div>
                 
-                <button disabled={task.name.length<4 || task.description.length<5} type="submit" className="btn btn-primary" >Add Note</button>
+                <button disabled={task.name.length<4 || task.description.length<5} type="submit" className="btn btn-secondary" >Add Note</button>
             </form>
             </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodos } from '../redux/Action/todoslice';
 import Card from './Card';
+import '../App.css'
 
 function Task() {
   const dispatch = useDispatch();
@@ -23,8 +24,8 @@ function Task() {
   }
 
   return (
-    <div className="row my-4">
-      <div className="container">
+    <div className="container my-2">
+      <div className="contain">
         {todos && todos.length === 0 ? 'No tasks to display' : null}
       </div>
       {todos &&
