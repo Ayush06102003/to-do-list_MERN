@@ -72,6 +72,33 @@ export const deleteTask = createAsyncThunk('deleteTask', async (taskId) => {
   }
 });
 
+// update done or not
+export const updateTaskStatus = createAsyncThunk(
+  'updateTaskStatus',
+  async ({ taskId, done }) => {
+    try {
+      const response = await fetch(`http://localhost:8000/update/${taskId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ done }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update task status');
+      }
+
+      // Fetch the updated task after the update
+      const updatedTask = await response.json();
+      return updatedTask;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+);
+
 // Create a slice
 const todoSlice = createSlice({
   name: 'todos',
@@ -91,7 +118,7 @@ const todoSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
-      // add task cases
+    // add task cases
       .addCase(addTask.pending, (state) => {
         state.status = 'loading';
       })
@@ -103,16 +130,31 @@ const todoSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
-      // delete task cases
+    // delete task cases
       .addCase(deleteTask.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // Remove the deleted task from the state.todos array
+    // Remove the deleted task from the state.todos array
         state.todos = state.todos.filter((task) => task._id !== action.payload);
       })
       .addCase(deleteTask.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+    // update task cases
+      .addCase(updateTaskStatus.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(updateTaskStatus.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        // Update the state.todos array with the updated task
+        state.todos = state.todos.map((task) =>
+          task._id === action.payload._id ? action.payload : task
+        );
+      })
+      .addCase(updateTaskStatus.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

@@ -39,4 +39,16 @@ router.get("/getall",async (req,res)=>{
     }
 });
 
+router.put('/update/:id', async (req,res)=>{
+    try {
+        const {id} = req.params;
+        let updatedTask = await Task.findByIdAndUpdate({_id: id}, {done : true})
+        updatedTask = await Task.findById(id);
+        res.json(updatedTask)
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send('Internal server error');
+    }
+})
+
 module.exports = router;

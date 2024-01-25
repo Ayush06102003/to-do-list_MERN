@@ -3,3 +3,11 @@
 body{
   background-color: #282c34ed;
 } */
+.completed {
+  text-decoration: line-through;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  /* Additional styles for completed text */
+}
