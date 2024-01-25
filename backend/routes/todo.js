@@ -5,7 +5,11 @@ const router = express.Router();
 
 router.post("/add",async (req,res)=>{
     try {
-        const newItem = new Task(req.body);
+        const {name, description} = req.body
+        const newItem = new Task({
+            name,
+            description
+        });
         await newItem.save();
         res.status(201).json({ message: 'Task added successfully' });
     } catch (error) {

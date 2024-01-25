@@ -1,11 +1,14 @@
 
 import './App.css';
-import Todo from './Components/Todo';
+import Task from './Components/Task';
+import TodoForm from './Components/TodoForm';
+
 
 function App() {
   return (
     <>
-    <Todo/>
+    <TodoForm/>
+    <Task/>
     </>
   );
 }
