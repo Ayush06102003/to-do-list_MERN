@@ -26,7 +26,7 @@ function Task() {
   return (
     <div className="container my-2">
       <div className="contain">
-        {todos && todos.length === 0 ? 'No tasks to display' : null}
+        {todos && todos.length === 0 ? ' ' : null}
       </div>
       {todos &&
         todos.map((todo) => {

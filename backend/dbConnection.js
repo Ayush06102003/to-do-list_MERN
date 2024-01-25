@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MongoUri = 'mongodb://127.0.0.1:27017/todolist'
+const MongoUri = 'mongodb+srv://ayushdarade06:Madhura@cluster0.4zd7ked.mongodb.net/todolist'
 
 const ConnectToMongo = ()=>{
     try {
