@@ -17,7 +17,7 @@ body{
   padding-top: 3%;
 }
 .container{
-  max-width : 60%;
+  max-width : 40%;
   height: auto;
   padding:10px;
   background-color: rgba(27, 26, 26, 0.755);
@@ -26,6 +26,21 @@ body{
 .form-label{
   color: beige;
 }
-.btn-secondary{
+.form-control{
+  width:90%;
+  align-items: center
+}
+.mb-3{
+  align-items: center;
+  padding-left:20px;
   
+}
+.card{
+  background-color: transparent;
+}
+.fs-3{
+  color: rgba(245, 245, 245, 0.863);
+}
+.fs-7{
+  color: rgba(245, 245, 245, 0.734);
 }

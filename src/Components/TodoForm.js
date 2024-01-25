@@ -19,7 +19,7 @@ function TodoForm() {
             <h1 className='text-centre'>My Todo</h1>
             <div className="container">
             <form onSubmit={onFormSubmit}>
-                <div className="mb-3">
+                <div className="mb-3 ">
                     <label htmlFor="name" className="form-label">Name</label>
                     <input type="text" className="form-control" id="name" aria-describedby="emailHelp" value={task.name}
               onChange={onInputChange}/>
@@ -31,7 +31,7 @@ function TodoForm() {
               onChange={onInputChange}/>
                 </div>
                 
-                <button disabled={task.name.length<4 || task.description.length<5} type="submit" className="btn btn-secondary" >Add Note</button>
+                <button disabled={task.name.length<4 || task.description.length<5} type="submit" className="btn btn-secondary mx-4" >Add Task</button>
             </form>
             </div>
 
